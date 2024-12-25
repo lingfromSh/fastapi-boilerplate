@@ -2,6 +2,29 @@ import typing as t
 from os import PathLike
 
 
+class File:
+    """
+    File class to encapsulate file operations.
+    """
+
+    def __init__(self, storage: "Storage", path: t.Union[PathLike, str]):
+        self.storage = storage
+        self.path = path
+
+    async def read(self, mode: t.Literal["rb", "r"] = "rb") -> t.Any:
+        return await self.storage.read(self.path, mode)
+
+    async def save(self, data: t.Any) -> None:
+        await self.storage.write(self.path, data)
+
+    async def stream(self, mode: t.Literal["rb", "r"] = "rb", chunk_size: int = 1024) -> t.AsyncGenerator[bytes, None]:
+        async for chunk in self.storage.stream(self.path, mode, chunk_size):
+            yield chunk
+
+    async def delete(self) -> None:
+        await self.storage.delete(self.path)
+
+
 class Storage:
     """
     Base Storage class.
@@ -14,15 +37,15 @@ class Storage:
         subclasses can override this method to initialize the storage.
         """
 
-    def open(self, path: t.Union[PathLike, str], mode: t.Literal["rb", "r"] = "rb") -> t.IO:
+    def open(self, path: t.Union[PathLike, str]) -> File:
         """
         Open a file with the given mode.
 
         :param path: The path to the file.
         :param mode: The mode to open the file in. defaults to "rb".
-        :return: The io object.
+        :return: The File object.
         """
-        raise NotImplementedError
+        return File(self, path)
 
     async def write(self, path: t.Union[PathLike, str], data: t.Any) -> None:
         """
@@ -42,8 +65,7 @@ class Storage:
         :param mode: The mode to open the file in.
         :return: The data read from the file.
         """
-        opened = await self.open(path, mode)
-        return await opened.read()
+        raise NotImplementedError
 
     async def stream(
         self, path: t.Union[PathLike, str], mode: t.Literal["rb", "r"], chunk_size: int = 1024

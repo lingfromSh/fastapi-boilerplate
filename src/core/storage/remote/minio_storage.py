@@ -3,6 +3,7 @@ import typing as t
 from minio import Minio
 from minio.error import S3Error
 
+from core.storage.base import File
 from core.storage.base import Storage
 
 
@@ -23,8 +24,8 @@ class MinioStorage(Storage):
         if not self.client.bucket_exists(self.bucket_name):
             self.client.make_bucket(self.bucket_name)
 
-    async def open(self, path: t.Union[str, bytes], mode: t.Literal["rb", "r"] = "rb") -> t.IO:
-        return self.client.get_object(self.bucket_name, path)
+    async def open(self, path: t.Union[str, bytes]) -> File:
+        return File(self, path)
 
     async def write(self, path: t.Union[str, bytes], data: bytes) -> None:
         try:

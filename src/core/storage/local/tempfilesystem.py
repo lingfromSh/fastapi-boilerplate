@@ -3,6 +3,7 @@ import tempfile
 
 import aiofiles
 
+from core.storage.base import File
 from core.storage.base import Storage
 
 
@@ -16,20 +17,20 @@ class TempFileSystemStorage(Storage):
         self.temp_dir = tempfile.TemporaryDirectory()
         super().__init__(*args, **kwargs)
 
-    def open(self, path, mode):
+    def open(self, path) -> File:
         full_path = os.path.join(self.temp_dir.name, path)
-        return aiofiles.open(full_path, mode)
+        return File(self, full_path)
 
     async def write(self, path, data):
-        async with self.open(path, "wb") as f:
+        async with aiofiles.open(path, "wb") as f:
             await f.write(data)
 
     async def read(self, path, mode="rb"):
-        async with self.open(path, mode) as f:
+        async with aiofiles.open(path, mode) as f:
             return await f.read()
 
     async def stream(self, path, mode, chunk_size=1024):
-        async with self.open(path, mode) as f:
+        async with aiofiles.open(path, mode) as f:
             while chunk := await f.read(chunk_size):
                 yield chunk
 

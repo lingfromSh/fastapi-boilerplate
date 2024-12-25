@@ -2,6 +2,7 @@ import os
 
 import aiofiles
 
+from core.storage.base import File
 from core.storage.base import Storage
 
 
@@ -11,19 +12,19 @@ class FileSystemStorage(Storage):
     File operations are based on the open function.
     """
 
-    def open(self, path, mode):
-        return aiofiles.open(path, mode)
+    def open(self, path) -> File:
+        return File(self, path)
 
     async def write(self, path, data):
-        async with self.open(path, "wb") as f:
+        async with aiofiles.open(path, "wb") as f:
             await f.write(data)
 
     async def read(self, path, mode="rb"):
-        async with self.open(path, mode) as f:
+        async with aiofiles.open(path, mode) as f:
             return await f.read()
 
     async def stream(self, path, mode, chunk_size=1024):
-        async with self.open(path, mode) as f:
+        async with aiofiles.open(path, mode) as f:
             while chunk := await f.read(chunk_size):
                 yield chunk
 
