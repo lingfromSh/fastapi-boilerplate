@@ -19,6 +19,8 @@ dependencies = [
     "loguru>=0.7.3",
     "uvicorn>=0.34.0",
     "uvloop>=0.21.0",
+    "taskiq>=0.11.10",
+    "apprise>=1.9.1",
 ]
 
 [project.optional-dependencies]
@@ -47,4 +49,4 @@ line-length = 120
 [tool.isort]
 profile = "black"
 line_length = 120
-force_single_line_imports = true
+force_single_line = true

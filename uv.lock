@@ -58,6 +58,23 @@ wheels = [
 ]
 
 [[package]]
+name = "apprise"
+version = "1.9.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "click" },
+    { name = "markdown" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "requests-oauthlib" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/88/f8/014fc92f4e6808da647e72a3478ea5df47de8f1e93cbac8ffcf8d771f6ca/apprise-1.9.1.tar.gz", hash = "sha256:79ecd02c41d86dffd211bb35cc5c06c846e777041abe1d0701f989980de44689", size = 1778862 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1c/cc/95957917370dbbff9280801a6d853af449c0f2ca17d8e58add4e80a816c2/apprise-1.9.1-py3-none-any.whl", hash = "sha256:0792954fbd4d92233b2b481bcbfed2c20b62a193f5565b25c4a369d4a3a8ce85", size = 1339731 },
+]
+
+[[package]]
 name = "asyncclick"
 version = "8.1.7.2"
 source = { registry = "https://pypi.org/simple" }
@@ -449,6 +466,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "aerich" },
+    { name = "apprise" },
     { name = "authlib" },
     { name = "dynaconf" },
     { name = "fastapi" },
@@ -459,6 +477,7 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "python-socketio" },
     { name = "strawberry-graphql" },
+    { name = "taskiq" },
     { name = "tortoise-orm" },
     { name = "uvicorn" },
     { name = "uvloop" },
@@ -484,6 +503,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "aerich", specifier = ">=0.8.0" },
+    { name = "apprise", specifier = ">=1.9.1" },
     { name = "authlib", specifier = ">=1.4.0" },
     { name = "dynaconf", specifier = ">=3.2.6" },
     { name = "fastapi", specifier = ">=0.115.6" },
@@ -499,6 +519,7 @@ requires-dist = [
     { name = "pytest-mock", marker = "extra == 'test'", specifier = ">=3.14.0" },
     { name = "python-socketio", specifier = ">=5.12.0" },
     { name = "strawberry-graphql", specifier = ">=0.256.1" },
+    { name = "taskiq", specifier = ">=0.11.10" },
     { name = "tortoise-orm", specifier = ">=0.23.0" },
     { name = "uvicorn", specifier = ">=0.34.0" },
     { name = "uvloop", specifier = ">=0.21.0" },
@@ -743,6 +764,18 @@ wheels = [
 ]
 
 [[package]]
+name = "importlib-metadata"
+version = "8.5.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "zipp" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz", hash = "sha256:71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7", size = 55304 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/d9/a1e041c5e7caa9a05c925f4bdbdfb7f006d1f74996af53467bc394c97be7/importlib_metadata-8.5.0-py3-none-any.whl", hash = "sha256:45e54197d28b7a7f1559e60b95e7c567032b602131fbd588f1497f47880aa68b", size = 26514 },
+]
+
+[[package]]
 name = "inflection"
 version = "0.5.1"
 source = { registry = "https://pypi.org/simple" }
@@ -837,6 +870,15 @@ wheels = [
 ]
 
 [[package]]
+name = "markdown"
+version = "3.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2", size = 357086 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3f/08/83871f3c50fc983b88547c196d11cf8c3340e37c32d2e9d6152abe2c61f7/Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803", size = 106349 },
+]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.2"
 source = { registry = "https://pypi.org/simple" }
@@ -920,6 +962,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/43/16/fc88b08840de0e0a72a2f9d8c6bae36be573e475a6326ae854bcc549fc45/nodeenv-1.9.1.tar.gz", hash = "sha256:6ec12890a2dab7946721edbfbcd91f3319c6ccc9aec47be7c7e6b7011ee6645f", size = 47437 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d2/1d/1b658dbd2b9fa9c4c9f32accbfc0205d532c8c6194dc0f2a4c0428e7128a/nodeenv-1.9.1-py2.py3-none-any.whl", hash = "sha256:ba11c9782d29c27c70ffbdda2d7415098754709be8a7056d79a737cd901155c9", size = 22314 },
+]
+
+[[package]]
+name = "oauthlib"
+version = "3.2.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/fa/fbf4001037904031639e6bfbfc02badfc7e12f137a8afa254df6c4c8a670/oauthlib-3.2.2.tar.gz", hash = "sha256:9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918", size = 177352 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/80/cab10959dc1faead58dc8384a781dfbf93cb4d33d50988f7a69f1b7c9bbe/oauthlib-3.2.2-py3-none-any.whl", hash = "sha256:8139f29aac13e25d502680e9e19963e83f16838d48a0d71c287fe40e7067fbca", size = 151688 },
 ]
 
 [[package]]
@@ -1037,6 +1088,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6", size = 172736 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc", size = 117552 },
+]
+
+[[package]]
+name = "pycron"
+version = "3.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/a9/bd7c28cfdc45728b3e2d7203e236943eb645a210d21e4e9f534356237aa2/pycron-3.1.1.tar.gz", hash = "sha256:6de8a555f721c74aa0bb681071a97da3d784ebf8ccea1d2bb9a3e66460b87da2", size = 4374 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/19/2c/b038f9bcde67def9a51bdf4d64d399d6853addb6844991cec64b04e95c33/pycron-3.1.1-py3-none-any.whl", hash = "sha256:bf676a66b8dcf69edf1d3fd1d8f3f2b9468a2a007012c89a14e9d087d3f76198", size = 4862 },
 ]
 
 [[package]]
@@ -1343,6 +1403,19 @@ wheels = [
 ]
 
 [[package]]
+name = "requests-oauthlib"
+version = "2.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "oauthlib" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/42/f2/05f29bc3913aea15eb670be136045bf5c5bbf4b99ecb839da9b422bb2c85/requests-oauthlib-2.0.0.tar.gz", hash = "sha256:b3dffaebd884d8cd778494369603a9e7b58d29111bf6b41bdc2dcd87203af4e9", size = 55650 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3b/5d/63d4ae3b9daea098d5d6f5da83984853c1bbacd5dc826764b249fe119d24/requests_oauthlib-2.0.0-py2.py3-none-any.whl", hash = "sha256:7dd8a5c40426b779b0868c404bdef9768deccf22749cde15852df527e6269b36", size = 24179 },
+]
+
+[[package]]
 name = "ruff"
 version = "0.8.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1443,6 +1516,34 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/13/8c/8ab5d5391e36e27a67c6921f952a7c18d0b0ec19f4f8a88f0a64da81552d/targ-0.4.0.tar.gz", hash = "sha256:dcdb57945bffe5bc59570d2e41bb1adc6280c5460332c5daf300729bc88d1aba", size = 9494 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/50/1e/47625c6b3615035d3ef11da1edd6726e245610ed1cbb08d60acc939bd1ce/targ-0.4.0-py3-none-any.whl", hash = "sha256:5237524323661ffa899158d668468b5c94bb84e2d988bd216981932844da63eb", size = 7204 },
+]
+
+[[package]]
+name = "taskiq"
+version = "0.11.10"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "importlib-metadata" },
+    { name = "packaging" },
+    { name = "pycron" },
+    { name = "pydantic" },
+    { name = "pytz" },
+    { name = "taskiq-dependencies" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/77/dcec3bc4300efe0588a003613989dde8a9cce9e02d6a3387f7ee1d3f078c/taskiq-0.11.10.tar.gz", hash = "sha256:d3ce40ccf399b38aa656614ecab6e5bbcc222b61fee654927822fc97ef4418a6", size = 52870 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/62/7b/31a4997e3402d866e33011b015d2c0194095c8255ddf913debcd7f6b29bb/taskiq-0.11.10-py3-none-any.whl", hash = "sha256:2b656c34231bf6947a6020098c94f93d6c45d15688d9e6bb8b3fbf54088e7717", size = 75347 },
+]
+
+[[package]]
+name = "taskiq-dependencies"
+version = "1.5.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e9/df/ff2247aff0146006bbe4195f00f64de179fc1911f3d1dee496d79e1d6757/taskiq_dependencies-1.5.6.tar.gz", hash = "sha256:5756690fd9f1f9efac34aac5959f173724e898a852de790238f97090467c4e3c", size = 15116 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c9/72/6f6bcc4a2d6b05a531605139fd7c315f6d6e37ab118ef1521fcec2077c38/taskiq_dependencies-1.5.6-py3-none-any.whl", hash = "sha256:fba4dbaac47dfc8817fd2efeb13cefe41f45790b4871ba65fcdfd3c74f7121dc", size = 13778 },
 ]
 
 [[package]]
@@ -1565,6 +1666,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c9/4a/44d3c295350d776427904d73c189e10aeae66d7f555bb2feee16d1e4ba5a/wsproto-1.2.0.tar.gz", hash = "sha256:ad565f26ecb92588a3e43bc3d96164de84cd9902482b130d0ddbaa9664a85065", size = 53425 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/78/58/e860788190eba3bcce367f74d29c4675466ce8dddfba85f7827588416f01/wsproto-1.2.0-py3-none-any.whl", hash = "sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736", size = 24226 },
+]
+
+[[package]]
+name = "zipp"
+version = "3.21.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/50/bad581df71744867e9468ebd0bcd6505de3b275e06f202c2cb016e3ff56f/zipp-3.21.0.tar.gz", hash = "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4", size = 24545 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b7/1a/7e4798e9339adc931158c9d69ecc34f5e6791489d469f5e50ec15e35f458/zipp-3.21.0-py3-none-any.whl", hash = "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931", size = 9630 },
 ]
 
 [[package]]

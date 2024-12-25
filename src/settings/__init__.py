@@ -1,8 +1,9 @@
 from dynaconf import Dynaconf
-from core.conf import Settings as BaseSettings
-from settings.server import ServerSettings
 from pydantic_settings import SettingsConfigDict
 
+from core.conf import Settings as BaseSettings
+from settings.database import DatabaseSettings
+from settings.server import ServerSettings
 
 dynaconf = Dynaconf(
     settings_files=["config.toml"],
@@ -10,7 +11,7 @@ dynaconf = Dynaconf(
 
 
 class Settings(BaseSettings):
-
     model_config = SettingsConfigDict(dynaconf=dynaconf)
 
     server: ServerSettings
+    database: DatabaseSettings

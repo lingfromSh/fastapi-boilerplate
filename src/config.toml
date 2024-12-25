@@ -3,3 +3,6 @@ name = "fastapi-boilerplate"
 host = "127.0.0.1"
 port = 8000
 debug = false
+
+[database]
+dsn = "postgres://postgres:postgres@localhost:5432/fastapi_boilerplate"
