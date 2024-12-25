@@ -6,3 +6,11 @@ debug = false
 
 [database]
 dsn = "postgres://postgres:postgres@localhost:5432/fastapi_boilerplate"
+
+
+[queue]
+host = "localhost"
+port = 5672
+username = "guest"
+password = "guest"
+vhost = "/"

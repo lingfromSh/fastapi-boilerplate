@@ -3,6 +3,7 @@ from pydantic_settings import SettingsConfigDict
 
 from core.conf import Settings as BaseSettings
 from settings.database import DatabaseSettings
+from settings.queue import QueueSettings
 from settings.server import ServerSettings
 
 dynaconf = Dynaconf(
@@ -15,3 +16,4 @@ class Settings(BaseSettings):
 
     server: ServerSettings
     database: DatabaseSettings
+    queue: QueueSettings
