@@ -22,6 +22,8 @@ dependencies = [
     "taskiq>=0.11.10",
     "apprise>=1.9.1",
     "taskiq-aio-pika>=0.4.1",
+    "aiofiles>=24.1.0",
+    "minio>=7.2.13",
 ]
 
 [project.optional-dependencies]

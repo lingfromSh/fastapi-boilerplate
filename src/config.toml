@@ -7,10 +7,16 @@ debug = false
 [database]
 dsn = "postgres://postgres:postgres@localhost:5432/fastapi_boilerplate"
 
-
 [queue]
 host = "localhost"
 port = 5672
 username = "guest"
 password = "guest"
 vhost = "/"
+
+[logging]
+
+[[logging.configs]]
+sink = "logs/app.log"
+format = "{time} - {level} - {message}"
+level = "INFO"
