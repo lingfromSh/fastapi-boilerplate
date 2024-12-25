@@ -1,0 +1,48 @@
+[project]
+name = "fastapi-boilerplate"
+version = "0.1.0"
+description = "FastAPI Boilerplate"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "authlib>=1.4.0",
+    "fastapi-pagination>=0.12.34",
+    "fastapi>=0.115.6",
+    "python-socketio>=5.12.0",
+    "strawberry-graphql>=0.256.1",
+    "piccolo-api>=1.5.2",
+    "aerich>=0.8.0",
+    "tortoise-orm>=0.23.0",
+    "dynaconf>=3.2.6",
+    "pydantic>=2.10.4",
+    "pydantic-settings>=2.7.0",
+    "loguru>=0.7.3",
+]
+
+[project.optional-dependencies]
+test = [
+    "locust>=2.32.5",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "isort>=5.13.2",
+    "pre-commit>=4.0.1",
+    "ruff>=0.8.4",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+force_single_line_imports = true
