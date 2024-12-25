@@ -17,7 +17,7 @@ class TempFileSystemStorage(Storage):
         self.temp_dir = tempfile.TemporaryDirectory()
         super().__init__(*args, **kwargs)
 
-    def open(self, path) -> File:
+    def open(self, path) -> File["TempFileSystemStorage"]:
         full_path = os.path.join(self.temp_dir.name, path)
         return File(self, full_path)
 

@@ -1,14 +1,16 @@
 import typing as t
 from os import PathLike
 
+S = t.TypeVar("S", bound="Storage")
 
-class File:
+
+class File(t.Generic[S]):
     """
     File class to encapsulate file operations.
     """
 
-    def __init__(self, storage: "Storage", path: t.Union[PathLike, str]):
-        self.storage = storage
+    def __init__(self, storage: S, path: t.Union[PathLike, str]):
+        self.storage: S = storage
         self.path = path
 
     async def read(self, mode: t.Literal["rb", "r"] = "rb") -> t.Any:
@@ -37,7 +39,7 @@ class Storage:
         subclasses can override this method to initialize the storage.
         """
 
-    def open(self, path: t.Union[PathLike, str]) -> File:
+    def open(self, path: t.Union[PathLike, str]) -> File[t.Self]:
         """
         Open a file with the given mode.
 

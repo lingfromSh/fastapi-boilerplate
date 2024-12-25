@@ -7,6 +7,12 @@ from core.storage.base import File
 from core.storage.base import Storage
 
 
+class MinioFile(File["MinioStorage"]):
+    @property
+    def url(self) -> str:
+        return self.storage.presigned_get_url(self.path)
+
+
 class MinioStorage(Storage):
     """
     MinIO Storage class.
@@ -24,8 +30,11 @@ class MinioStorage(Storage):
         if not self.client.bucket_exists(self.bucket_name):
             self.client.make_bucket(self.bucket_name)
 
-    async def open(self, path: t.Union[str, bytes]) -> File:
-        return File(self, path)
+    def presigned_get_url(self, path: t.Union[str, bytes]) -> str:
+        return self.client.presigned_get_object(self.bucket_name, path)
+
+    async def open(self, path: t.Union[str, bytes]) -> MinioFile[t.Self]:
+        return MinioFile(self, path)
 
     async def write(self, path: t.Union[str, bytes], data: bytes) -> None:
         try:

@@ -2,7 +2,6 @@ import os
 
 import aiofiles
 
-from core.storage.base import File
 from core.storage.base import Storage
 
 
@@ -11,9 +10,6 @@ class FileSystemStorage(Storage):
     File System Storage class.
     File operations are based on the open function.
     """
-
-    def open(self, path) -> File:
-        return File(self, path)
 
     async def write(self, path, data):
         async with aiofiles.open(path, "wb") as f:
