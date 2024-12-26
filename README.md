@@ -1,5 +1,7 @@
 # fastapi-boilerplate
 
+> Viewer Count: ![Counter](https://counter.jerryz.com.cn/counter?name=lingfromsh-fastapi-boilerplate)
+
 This is a boilerplate for building scalable and maintainable web APIs based on FastAPI.
 
 See more details: [Documentation](docs/index.md)
