@@ -13,6 +13,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: fastapi_boilerplate
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
   queue:
     image: rabbitmq:4-management
@@ -22,3 +24,25 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data:/data
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - 9000:9000
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+
+volumes:
+  redis-data:
+  db-data:
+  minio-data:

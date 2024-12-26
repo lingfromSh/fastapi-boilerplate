@@ -8,6 +8,9 @@ from core.tortoise.models import BaseModel
 class Author(BaseModel):
     name: str = fields.CharField(max_length=255)
 
+    class Meta:
+        table = "authors"
+
 
 class Blog(BaseModel):
     title: str = fields.CharField(max_length=255)
@@ -17,4 +20,7 @@ class Blog(BaseModel):
     views: int = fields.IntField(default=0)
     likes: int = fields.IntField(default=0)
     published: bool = fields.BooleanField(default=False)
-    published_at: datetime = fields.DatetimeField(null=True)
+    published_at: datetime | None = fields.DatetimeField(null=True)
+
+    class Meta:
+        table = "blogs"

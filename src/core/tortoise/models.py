@@ -22,8 +22,12 @@ class BaseModel(Model):
     updated_at: datetime = fields.DatetimeField(auto_now=True)
     deleted_at: int = fields.BigIntField(default=0, db_index=True)
 
-    alive_objects = AliveManager()
-    dead_objects = DeadManager()
+    alive_objects: AliveManager = AliveManager()
+    dead_objects: DeadManager = DeadManager()
+
+    async def soft_delete(self):
+        self.deleted_at = int(datetime.now().timestamp() * 1000000)
+        await self.save()
 
     class Meta:
         abstract = True
