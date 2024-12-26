@@ -6,6 +6,7 @@ from core.health import failure_handler
 from core.health import is_database_ready
 from core.health import success_handler
 from core.logger import logger
+from core.socketio import app as socketio_app
 from lifespan import lifespan
 from settings import Settings
 
@@ -19,6 +20,7 @@ def configure_app(app: FastAPI):
     app.add_api_route(
         "/health", health([is_database_ready], success_handler=success_handler, failure_handler=failure_handler)
     )
+    app.mount("/socket.io", socketio_app)
 
 
 configure_app(app)
