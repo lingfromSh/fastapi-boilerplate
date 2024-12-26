@@ -2,6 +2,7 @@ from dynaconf import Dynaconf
 from pydantic_settings import SettingsConfigDict
 
 from core.conf import Settings as BaseSettings
+from settings.authentication import AuthenticationSettings
 from settings.database import DatabaseSettings
 from settings.logging import LoggingSettings
 from settings.queue import QueueSettings
@@ -19,3 +20,4 @@ class Settings(BaseSettings):
     database: DatabaseSettings
     queue: QueueSettings
     logging: LoggingSettings
+    authentication: AuthenticationSettings

@@ -14,9 +14,12 @@ username = "guest"
 password = "guest"
 vhost = "/"
 
-[logging]
-
 [[logging.configs]]
 sink = "logs/app.log"
 format = "{time} - {level} - {message}"
 level = "INFO"
+
+[authentication]
+jwt_algorithm = "HS256"
+jwt_secret_key = "secret"
+jwt_access_token_expires = 86400
