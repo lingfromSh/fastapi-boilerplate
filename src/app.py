@@ -1,6 +1,10 @@
 from fastapi import FastAPI
+from fastapi_health import health
 from fastapi_pagination import add_pagination
 
+from core.health import failure_handler
+from core.health import is_database_ready
+from core.health import success_handler
 from core.logger import logger
 from lifespan import lifespan
 from settings import Settings
@@ -12,6 +16,9 @@ app = FastAPI(title=settings.server.name, lifespan=lifespan)
 def configure_app(app: FastAPI):
     logger.info("Configuring app")
     add_pagination(app)
+    app.add_api_route(
+        "/health", health([is_database_ready], success_handler=success_handler, failure_handler=failure_handler)
+    )
 
 
 configure_app(app)

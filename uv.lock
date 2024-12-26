@@ -549,6 +549,7 @@ dependencies = [
     { name = "authlib" },
     { name = "dynaconf" },
     { name = "fastapi" },
+    { name = "fastapi-health" },
     { name = "fastapi-pagination" },
     { name = "loguru" },
     { name = "minio" },
@@ -589,6 +590,7 @@ requires-dist = [
     { name = "authlib", specifier = ">=1.4.0" },
     { name = "dynaconf", specifier = ">=3.2.6" },
     { name = "fastapi", specifier = ">=0.115.6" },
+    { name = "fastapi-health", specifier = ">=0.4.0" },
     { name = "fastapi-pagination", specifier = ">=0.12.34" },
     { name = "locust", marker = "extra == 'test'", specifier = ">=2.32.5" },
     { name = "loguru", specifier = ">=0.7.3" },
@@ -615,6 +617,18 @@ dev = [
     { name = "isort", specifier = ">=5.13.2" },
     { name = "pre-commit", specifier = ">=4.0.1" },
     { name = "ruff", specifier = ">=0.8.4" },
+]
+
+[[package]]
+name = "fastapi-health"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "fastapi" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ce/97/27bdba7462672adf9815c0ac05c6d1c1ff49527b5d5a8a4e41034a58b6c2/fastapi-health-0.4.0.tar.gz", hash = "sha256:a0781b2359732d50cddda1195784f78950265c6b3689d7a1e6e65a21aed4d6a5", size = 3960 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cf/3d/bc1003fb1708f7cfe1546a22875c38ebc901e621564aeef3bb97f32b1ab2/fastapi_health-0.4.0-py3-none-any.whl", hash = "sha256:d6c1795f7596009cffa7a84d5a67a6b66bbf9d6ce79b040fd50601ed5392089f", size = 3990 },
 ]
 
 [[package]]
